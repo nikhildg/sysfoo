@@ -26,4 +26,5 @@ pipeline{
                                 sh 'mvn package -DskipTests'
                         }
                 }
+	}
 }
