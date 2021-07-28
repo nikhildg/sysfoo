@@ -1,0 +1,7 @@
+version: "3.8"
+
+services:
+  sysfoo:
+    image: 4ce2cac862a9/sysfoo:latest
+    ports:
+      - 8888:8080
