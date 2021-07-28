@@ -34,6 +34,10 @@ pipeline {
         }
 
       }
+      when {
+        // Only when branch is master
+        expression { env.BRANCH_NAME == 'master' }
+      }
       steps {
         echo 'package maven app'
         sh 'mvn package -DskipTests'
@@ -43,6 +47,10 @@ pipeline {
 
     stage('docker BnP') {
       agent any
+      when {
+        // Only when branch is master
+        expression { env.BRANCH_NAME == 'master' }
+      }
       steps {
         script {
           docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
